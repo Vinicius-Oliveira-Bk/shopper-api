@@ -11,13 +11,13 @@ massiva e com recursos adicionais para evitar erros que possam prejudicar o neg�
 *Você foi encarregado de desenvolver essa ferramenta e após uma série de reuniões com as áreas
 envolvidas, os seguintes requisitos foram levantados:*
 
-#### 1- O time Compras, responsável por definir os preços, se comprometeu em gerar um arquivo CSV (exemplo em anexo) contendo código do produto e o novo preço que será carregado.
+1- O time Compras, responsável por definir os preços, se comprometeu em gerar um arquivo CSV (exemplo em anexo) contendo código do produto e o novo preço que será carregado.
 
-#### 2- O time Financeiro, preocupado com o faturamento, solicitou que o sistema impeça que o preço de venda dos produtos fique abaixo do custo deles;
+2- O time Financeiro, preocupado com o faturamento, solicitou que o sistema impeça que o preço de venda dos produtos fique abaixo do custo deles;
 
-#### 3- O time de Marketing, preocupado com o impacto de reajustes nos clientes, solicitou que o sistema impeça qualquer reajuste maior ou menor do que 10% do preço atual do produto.
+3- O time de Marketing, preocupado com o impacto de reajustes nos clientes, solicitou que o sistema impeça qualquer reajuste maior ou menor do que 10% do preço atual do produto.
 
-#### 4- Alguns produtos são vendidos em pacotes, ou seja, um produto que composto por um ou mais produtos em quantidades diferentes. Estabeleceu-se a regra que, ao reajustar o preço de um pacote, o mesmo arquivo deve conter os reajustes dos preços dos componentes do pacote de modo que o preço final da soma dos componentes seja igual ao preço do pacote.
+4- Alguns produtos são vendidos em pacotes, ou seja, um produto que composto por um ou mais produtos em quantidades diferentes. Estabeleceu-se a regra que, ao reajustar o preço de um pacote, o mesmo arquivo deve conter os reajustes dos preços dos componentes do pacote de modo que o preço final da soma dos componentes seja igual ao preço do pacote.
 
 Exemplos 1 -
 Imagine o produto PACK GUARANA 1L – 6 Unidades
@@ -77,30 +77,3 @@ a tela pronta para o envio de um novo arquivo.
 • O preço de custo dos pacotes também deve ser atualizado como a soma dos custos dos
 seus componentes. Os preço de custo dos produtos que não são pacotes não deve ser
 atualizado.
-
-## COMO ENTREGAR SEU PROJETO
-
-• Junto com esse teste você deve ter recebido o arquivo database.sql – Esse arquivo contém
-o script que define e preenche a tabela de Produtos, que contém todos os dados de
-produtos e a tabela que relaciona os pacotes.
-
-• Seu projeto deve estar versionado no Github em um repositório público você deve
-encaminhar o link do seu projeto para o e-mail talentos@shopper.com.br para oficializar
-sua entrega. Serão aceitas entregas até as 23h59 do dia 08/09/2023.
-
-• Seu projeto deve ter um arquivo README.md contendo todas as instruções para
-instalação e execução local (passos do setup, variáveis de ambiente, etc...).
-
-• Não há necessidade de publicar seu projeto em plataformas de host (ex. Heroku).
-
-## ARMADILHAS QUE VOCE DEVE EVITAR
-
-• Atenha-se ao que foi pedido nos requisitos. Não crie complicações não solicitadas (ex.
-uma tela de login).
-
-• Caso queira implementar mais funcionalidades para mostrar seus conhecimentos, deixe-as
-para o final e só as inicie assim que todos os requisitos solicitados tenham sido 100%
-atendidos. Os requisitos serão contados na avaliação, as funcionalidades extras serão
-consideradas apenas diferenciais.
-
-Te desejamos um ótimo trabalho e, caso tenha qualquer dúvida, fique à vontade para entrar em contato conosco.
