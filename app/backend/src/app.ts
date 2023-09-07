@@ -1,38 +1,14 @@
-import * as express from 'express';
-// import router from './routes';
+import express from 'express';
+import router from './routes/index';
 
-class App {
-  public app: express.Express;
+// app config:
 
-  constructor() {
-    this.app = express();
+const app = express();
 
-    this.config();
+app.use(express.json());
 
-    this.app.get('/', (req, res) => res.json({ ok: true }));
+// Rotas:
 
-    // this.router();
-  }
+app.use('/', router);
 
-  private config():void {
-    const accessControl: express.RequestHandler = (_req, res, next) => {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
-      res.header('Access-Control-Allow-Headers', '*');
-      next();
-    };
-
-    this.app.use(express.json());
-    this.app.use(accessControl);
-  }
-
-  public start(PORT: string | number): void {
-    this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
-  }
-
-//   private router() {
-//     this.app.use(router);
-//   }
-}
-
-export { App };
+export default app;
