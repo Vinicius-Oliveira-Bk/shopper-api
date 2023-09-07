@@ -1,15 +1,24 @@
-import { Request, Response } from 'express';
-import { db } from '../../connection';
+import { IShopperController, IShopperControllerRepository } from '../interfaces/IControllers';
 
-export default class ShopperController {
+export default class ShopperController implements IShopperController {
+  constructor(private readonly getAllProductsRepository: IShopperControllerRepository) {}
 
-  public getAllProducts = async (req: Request, res: Response) => {
-    const queryProducts = 'SELECT * FROM products';
+  async handleProducts() {
+    try {
+      const products = await this.getAllProductsRepository.getAllProducts();
 
-    db.query(queryProducts, (err, data) => {
-        if (err) return res.json(err);
+      return {
+        status: 'SUCCESSFUL',
+        statusCode: 200,
+        body: products,
+      }
+    } catch (error: unknown) {
+      return {
+        status: 'ERROR',
+        statusCode: 500,
+        body: "Internal Server Error"
+      }
+    }
 
-        return res.status(200).json(data);
-    });
-  };
+  }
 }
