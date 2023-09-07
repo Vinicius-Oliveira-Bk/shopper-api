@@ -12,11 +12,11 @@ export default class ShopperController implements IShopperController {
         statusCode: 200,
         body: products,
       }
-    } catch (error: unknown) {
+    } catch (error: string | unknown) {
       return {
         status: 'ERROR',
         statusCode: 500,
-        body: "Internal Server Error"
+        body: `Internal Server Error: ${error}`,
       }
     }
 

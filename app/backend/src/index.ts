@@ -8,7 +8,7 @@ config();
 
 const main = async () => {
     const app = express();
-    await MySQLClient.connect();
+    await MySQLClient();
 
     app.get('/products', async (req, res) => {
         const getProductsReposity = new MySQLGetProductsRepository();
@@ -20,7 +20,8 @@ const main = async () => {
         res.send(body).status(statusCode);
     });
 
-    const port = process.env.PORT || 3001;    
+    const port = process.env.PORT || 3001;
+      
     app.listen(port, () => console.log(`Server is running on PORT: ${port}`));
 };
 
