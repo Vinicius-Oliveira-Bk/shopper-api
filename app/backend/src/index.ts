@@ -1,28 +1,39 @@
-import express from 'express';
-import { config } from 'dotenv';
-import ShopperController from './controllers';
-import { MySQLGetProductsRepository } from './repositories/mysql-get-products';
-import { MySQLClient } from './database/mysql';
+import express from "express";
+import { config } from "dotenv";
+import { MySQLClient } from "./database/mysql";
+import Route from "./routes/index";
 
-config();
 
 const main = async () => {
-    const app = express();
-    await MySQLClient();
+  config();
 
-    app.get('/products', async (req, res) => {
-        const getProductsReposity = new MySQLGetProductsRepository();
-    
-        const getAllProducts = new ShopperController(getProductsReposity);
-    
-        const { body, statusCode } = await getAllProducts.handleProducts();
-    
-        res.send(body).status(statusCode);
-    });
+  const app = express();
 
-    const port = process.env.PORT || 3001;
-      
-    app.listen(port, () => console.log(`Server is running on PORT: ${port}`));
+  app.use(express.json());
+
+  await MySQLClient();
+
+  app.use('./products', Route)
+  app.use('./packs', Route)
+
+//   app.patch("/users/:id", async (req, res) => {
+//     const mongoUpdateUserRepository = new MongoUpdateUserRepository();
+
+//     const updateUserController = new UpdateUserController(
+//       mongoUpdateUserRepository
+//     );
+
+//     const { body, statusCode } = await updateUserController.handle({
+//       body: req.body,
+//       params: req.params,
+//     });
+
+//     res.status(statusCode).send(body);
+//   });
+
+  const port = process.env.PORT || 3001;
+
+  app.listen(port, () => console.log(`listening on port ${port}!`));
 };
 
 main();
