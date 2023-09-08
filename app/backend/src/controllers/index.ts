@@ -1,24 +1,5 @@
-import { IShopperController, IShopperControllerRepository } from '../interfaces/IControllers';
+import { Request, Response } from 'express'
 
-export default class ShopperController implements IShopperController {
-  constructor(private readonly getAllProductsRepository: IShopperControllerRepository) {}
-
-  async handleProducts() {
-    try {
-      const products = await this.getAllProductsRepository.getAllProducts();
-
-      return {
-        status: 'SUCCESSFUL',
-        statusCode: 200,
-        body: products,
-      }
-    } catch (error: string | unknown) {
-      return {
-        status: 'ERROR',
-        statusCode: 500,
-        body: `Internal Server Error: ${error}`,
-      }
-    }
-
-  }
+export function shopperApi(req: Request, res: Response): Response {
+   return res.json('shopper api'); 
 }
